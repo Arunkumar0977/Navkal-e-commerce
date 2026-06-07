@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #fff9f6;
+    color: #5c3a2e;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  ::selection { background: #f5d0de; color: #5c3a2e; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #fff9f6; }
+  ::-webkit-scrollbar-thumb { background: #e8a0b4; border-radius: 3px; }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: #8B4B5A;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background-color: #7a3f4e;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(139,75,90,0.3);
+  }
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-outline {
+    border: 1px solid #8B4B5A;
+    color: #8B4B5A;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    transition: all 0.3s;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+  }
+  .btn-outline:hover {
+    background-color: #8B4B5A;
+    color: white;
+    transform: translateY(-1px);
+  }
+
+  .card-soft {
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(139,75,90,0.08);
+    transition: box-shadow 0.3s;
+  }
+  .card-soft:hover {
+    box-shadow: 0 8px 40px rgba(139,75,90,0.15);
+  }
+
+  .input-soft {
+    width: 100%;
+    border: 1px solid #f0d9d0;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    background-color: white;
+    outline: none;
+    transition: all 0.2s;
+    color: #5c3a2e;
+  }
+  .input-soft::placeholder { color: #c4a882; }
+  .input-soft:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 2px #e8a0b4;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    color: #5c3a2e;
+    line-height: 1.1;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  .font-cormorant {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #f5e6dc 25%, #fdf6f0 50%, #f5e6dc 75%);
+    background-size: 400% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 0.5rem;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(to right, #8B4B5A, #c4a882);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-soft-pattern {
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(232,160,180,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(201,184,232,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 50% 80%, rgba(196,168,130,0.06) 0%, transparent 50%);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: 100% 0; }
+  100% { background-position: -100% 0; }
+}
