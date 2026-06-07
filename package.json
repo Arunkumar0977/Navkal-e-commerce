@@ -3,17 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint",
-    "db:push": "prisma db push",
-    "db:seed": "npx tsx prisma/seed.ts",
-    "db:studio": "prisma studio",
-    "db:generate": "prisma generate",
-    "db:migrate": "prisma migrate dev",
-    "db:reset": "prisma migrate reset --force"
-  },
+  "dev": "next dev --turbopack",
+  "build": "next build --no-turbo",
+  "start": "next start",
+  "lint": "next lint",
+  "db:push": "prisma db push",
+  "db:seed": "npx tsx prisma/seed.ts",
+  "db:generate": "prisma generate",
+  "db:studio": "prisma studio",
+  "db:migrate": "prisma migrate dev",
+  "db:reset": "prisma migrate reset --force"
+},
   "dependencies": {
     "@clerk/nextjs": "^7.4.1",
     "@hookform/resolvers": "^5.2.2",

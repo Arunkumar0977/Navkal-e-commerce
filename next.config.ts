@@ -23,6 +23,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Force Webpack (disable Turbopack) — fixes Vercel build errors
+  turbopack: {},
+
   serverExternalPackages: [
     "@prisma/client",
     "@prisma/adapter-neon",
@@ -30,6 +33,7 @@ const nextConfig: NextConfig = {
     "bcryptjs",
     "razorpay",
   ],
+
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "res.cloudinary.com" },
@@ -37,13 +41,6 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
-  },
-  // Ignore seed file during build
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      config.externals = [...(config.externals || []), "prisma/seed.ts"];
-    }
-    return config;
   },
 };
 
