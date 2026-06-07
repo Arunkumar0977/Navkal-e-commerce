@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     const resolvedPaymentId = paymentIntentId || razorpay_payment_id || null;
     const orderNumber = generateOrderNumber();
 
-    const order = await prisma.$transaction(async (tx) => {
+    const order = await prisma.$transaction(async (tx: typeof prisma) => {
       const created = await tx.order.create({
         data: {
           orderNumber, userId: user.id,
