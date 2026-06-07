@@ -20,7 +20,6 @@
 
 // export default nextConfig;
 
-
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -31,32 +30,20 @@ const nextConfig: NextConfig = {
     "bcryptjs",
     "razorpay",
   ],
-
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "res.cloudinary.com",
-      },
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-      },
-      {
-        protocol: "https",
-        hostname: "avatars.githubusercontent.com",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-      },
-
-      // Clerk user profile images
-      {
-        protocol: "https",
-        hostname: "img.clerk.com",
-      },
+      { protocol: "https", hostname: "res.cloudinary.com" },
+      { protocol: "https", hostname: "lh3.googleusercontent.com" },
+      { protocol: "https", hostname: "avatars.githubusercontent.com" },
+      { protocol: "https", hostname: "images.unsplash.com" },
     ],
+  },
+  // Ignore seed file during build
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [...(config.externals || []), "prisma/seed.ts"];
+    }
+    return config;
   },
 };
 
